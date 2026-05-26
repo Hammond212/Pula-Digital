@@ -482,7 +482,7 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: 3rem;
   margin-bottom: 3rem;
 }
@@ -521,16 +521,30 @@ footer {
   text-decoration: none;
   font-size: 13px;
   transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .footer-links a:hover {
   color: var(--accent-primary);
 }
 
+.footer-links a i {
+  font-size: 14px;
+}
+
 .footer-bottom {
   text-align: center;
   border-top: 0.5px solid var(--border-color);
   padding-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -714,6 +728,13 @@ footer {
         <li><a href="#">Privacy</a></li>
         <li><a href="#">Terms</a></li>
         <li><a href="#">Cookies</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="https://wa.me/26775945724" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+        <li><a href="mailto:otukileh@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
       </ul>
     </div>
   </div>

@@ -23,10 +23,28 @@
   --text-secondary: #666666;
   --text-tertiary: #999999;
   --border-color: #e0e0e0;
-  --bg-state-1: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-  --bg-state-2: linear-gradient(225deg, #f5f5f5 0%, #e8f0f7 100%);
-  --bg-state-3: linear-gradient(45deg, #f0f4ff 0%, #ffe8f5 100%);
-  --bg-state-4: linear-gradient(315deg, #f5f0ff 0%, #f0fff5 100%);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -105,11 +123,9 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
-  background: var(--bg-state-1);
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
   position: relative;
   overflow: hidden;
-  cursor: pointer;
-  transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero::before {
@@ -119,10 +135,9 @@ nav a:hover {
   right: -20%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(24, 95, 165, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(24, 95, 165, 0.04) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero::after {
@@ -132,64 +147,9 @@ nav a:hover {
   left: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(97, 51, 206, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(97, 51, 206, 0.03) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hero.state-2::before {
-  background: radial-gradient(circle, rgba(24, 95, 165, 0.15) 0%, transparent 70%);
-  width: 700px;
-  height: 700px;
-}
-
-.hero.state-2::after {
-  background: radial-gradient(circle, rgba(97, 51, 206, 0.12) 0%, transparent 70%);
-  width: 600px;
-  height: 600px;
-}
-
-.hero.state-3::before {
-  background: radial-gradient(circle, rgba(24, 95, 165, 0.1) 0%, transparent 70%);
-  width: 500px;
-  height: 500px;
-  right: -30%;
-  top: -60%;
-}
-
-.hero.state-3::after {
-  background: radial-gradient(circle, rgba(97, 51, 206, 0.15) 0%, transparent 70%);
-  width: 700px;
-  height: 700px;
-  left: -20%;
-  bottom: -50%;
-}
-
-.hero.state-4::before {
-  background: radial-gradient(circle, rgba(97, 51, 206, 0.1) 0%, transparent 70%);
-  width: 650px;
-  height: 650px;
-  right: -10%;
-  top: -40%;
-}
-
-.hero.state-4::after {
-  background: radial-gradient(circle, rgba(24, 95, 165, 0.08) 0%, transparent 70%);
-  width: 550px;
-  height: 550px;
-}
-
-.hero.state-2 {
-  background: var(--bg-state-2);
-}
-
-.hero.state-3 {
-  background: var(--bg-state-3);
-}
-
-.hero.state-4 {
-  background: var(--bg-state-4);
 }
 
 .hero-content {
@@ -197,6 +157,7 @@ nav a:hover {
   position: relative;
   z-index: 2;
   text-align: left;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .hero-content h1 {
@@ -245,6 +206,7 @@ nav a:hover {
 
 .section-header {
   margin-bottom: 4rem;
+  animation: fadeInDown 0.6s ease-out 0.1s both;
 }
 
 .section-label {
@@ -275,8 +237,9 @@ nav a:hover {
   border: 0.5px solid var(--border-color);
   border-radius: 12px;
   padding: 2.5rem;
-  transition: all 0.3s;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  animation: fadeInUp 0.8s ease-out backwards;
 }
 
 .service-card::before {
@@ -288,11 +251,18 @@ nav a:hover {
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
   border-radius: 12px 12px 0 0;
+  transition: all 0.4s ease-out;
 }
 
 .service-card:hover {
-  border-color: var(--text-secondary);
-  transform: translateY(-4px);
+  border-color: var(--accent-primary);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(24, 95, 165, 0.12);
+}
+
+.service-card:hover::before {
+  height: 3px;
+  opacity: 1;
 }
 
 .service-icon {
@@ -320,6 +290,13 @@ nav a:hover {
   color: var(--text-secondary);
   line-height: 1.7;
 }
+
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+.service-card:nth-child(5) { animation-delay: 0.5s; }
+.service-card:nth-child(6) { animation-delay: 0.6s; }
 
 .features {
   background: var(--secondary-light);
@@ -352,7 +329,19 @@ nav a:hover {
 .feature-item {
   display: flex;
   gap: 1rem;
+  animation: fadeInUp 0.6s ease-out backwards;
+  transition: transform 0.3s ease-out;
 }
+
+.feature-item:hover {
+  transform: translateX(8px);
+}
+
+.feature-item:nth-child(1) { animation-delay: 0.2s; }
+.feature-item:nth-child(2) { animation-delay: 0.3s; }
+.feature-item:nth-child(3) { animation-delay: 0.4s; }
+.feature-item:nth-child(4) { animation-delay: 0.5s; }
+.feature-item:nth-child(5) { animation-delay: 0.6s; }
 
 .feature-check {
   flex-shrink: 0;
@@ -384,6 +373,13 @@ nav a:hover {
   font-size: 13px;
   color: var(--text-secondary);
   border: 0.5px solid var(--border-color);
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+  transition: all 0.4s ease-out;
+}
+
+.features-visual:hover {
+  box-shadow: 0 12px 24px rgba(24, 95, 165, 0.1);
+  transform: translateY(-4px);
 }
 
 .contact {
@@ -391,6 +387,7 @@ nav a:hover {
   max-width: 720px;
   margin: 0 auto;
   text-align: center;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .contact h2 {
@@ -626,26 +623,28 @@ footer {
 </footer>
 
 <script>
-let heroState = 1;
-
-function handleHeroClick(event) {
-  if (event.target.closest('.hero-content')) {
-    heroState = heroState === 4 ? 1 : heroState + 1;
-    const hero = document.querySelector('.hero');
-    hero.className = 'hero';
-    if (heroState > 1) {
-      hero.classList.add(`state-${heroState}`);
-    }
-  }
-}
-
-document.querySelector('.hero').addEventListener('click', handleHeroClick);
-
 function handleSubmit(event) {
   event.preventDefault();
   alert('Thank you for reaching out! We will get back to you soon.');
   event.target.reset();
 }
+
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = entry.target.style.animation || 'fadeInUp 0.6s ease-out forwards';
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.service-card, .feature-item, .features-visual').forEach(el => {
+  observer.observe(el);
+});
 </script>
 </body>
 </html>

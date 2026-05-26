@@ -161,12 +161,16 @@ nav a:hover {
 }
 
 .hero-content h1 {
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 1.1;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.15;
   margin-bottom: 1.5rem;
-  letter-spacing: -1.2px;
+  letter-spacing: -1.5px;
   color: var(--text-primary);
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-content p {
@@ -180,22 +184,24 @@ nav a:hover {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 28px;
-  background: var(--text-primary);
+  padding: 16px 36px;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
   color: var(--primary-light);
   border: none;
-  border-radius: 8px;
-  font-weight: 600;
+  border-radius: 10px;
+  font-weight: 700;
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.3s;
-  letter-spacing: 0.3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(24, 95, 165, 0.25);
 }
 
 .cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(24, 95, 165, 0.35);
 }
 
 .services {
@@ -219,10 +225,10 @@ nav a:hover {
 }
 
 .section-title {
-  font-size: 42px;
-  font-weight: 700;
-  letter-spacing: -0.8px;
-  margin-bottom: 1rem;
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 1.5rem;
   color: var(--text-primary);
 }
 
@@ -235,11 +241,12 @@ nav a:hover {
 .service-card {
   background: var(--primary-light);
   border: 0.5px solid var(--border-color);
-  border-radius: 12px;
-  padding: 2.5rem;
+  border-radius: 14px;
+  padding: 2.8rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   animation: fadeInUp 0.8s ease-out backwards;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .service-card::before {
@@ -248,20 +255,20 @@ nav a:hover {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
-  border-radius: 12px 12px 0 0;
+  border-radius: 14px 14px 0 0;
   transition: all 0.4s ease-out;
+  opacity: 0;
 }
 
 .service-card:hover {
   border-color: var(--accent-primary);
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(24, 95, 165, 0.12);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(24, 95, 165, 0.15);
 }
 
 .service-card:hover::before {
-  height: 3px;
   opacity: 1;
 }
 
@@ -314,10 +321,10 @@ nav a:hover {
 }
 
 .features-text h2 {
-  font-size: 40px;
-  font-weight: 700;
-  letter-spacing: -0.8px;
-  margin-bottom: 1.5rem;
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 2rem;
 }
 
 .features-list {
@@ -391,10 +398,10 @@ nav a:hover {
 }
 
 .contact h2 {
-  font-size: 40px;
-  font-weight: 700;
-  letter-spacing: -0.8px;
-  margin-bottom: 1rem;
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 1.5rem;
 }
 
 .contact p {
@@ -443,33 +450,94 @@ nav a:hover {
 }
 
 .submit-btn {
-  padding: 14px 28px;
-  background: var(--text-primary);
+  padding: 16px 36px;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
   color: var(--primary-light);
   border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-size: 13px;
+  box-shadow: 0 4px 16px rgba(24, 95, 165, 0.25);
 }
 
 .submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(24, 95, 165, 0.35);
 }
 
 footer {
   background: var(--secondary-light);
   border-top: 0.5px solid var(--border-color);
-  padding: 2rem;
-  text-align: center;
+  padding: 4rem 2rem 2rem;
   color: var(--text-secondary);
   font-size: 12px;
   letter-spacing: 0.3px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.footer-links h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--accent-primary);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 0.5px solid var(--border-color);
+  padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -619,7 +687,39 @@ footer {
 </section>
 
 <footer>
-  <p>&copy; 2026 Pula Digital. All rights reserved. | Web Solutions for the Modern Era</p>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h3>Pula Digital</h3>
+      <p>Transforming businesses through innovative digital solutions and cutting-edge web technologies.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Web Design</a></li>
+        <li><a href="#services">Development</a></li>
+        <li><a href="#services">Strategy</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#services">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Pula Digital. All rights reserved.</p>
+  </div>
 </footer>
 
 <script>
